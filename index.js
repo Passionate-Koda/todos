@@ -1,5 +1,5 @@
 var server = require('./server/server.js'),
-	PORT   = 8888;
+		PORT   = 8888;
 
 // start listening
 server.listen(PORT, function () {

@@ -1,5 +1,5 @@
 var todoModel = require('./todo-model.js'),
-userModel = require("../users/user-model.js");
+		userModel = require("../users/user-model.js");
 
 exports.intercept = function(req, res, next, id) {
 	todoModel.findById(id, function(err, todo) {
@@ -39,23 +39,23 @@ exports.addTodo = function(req, res, next) {
 
 exports.fetchAllTodos = function(req, res, next) {
 	/*todoModel.find(function(err, todos) {
-		if(err) {
-			req.errstatus = 500;
-			return next(err);
-		}
+	if(err) {
+	req.errstatus = 500;
+	return next(err);
+}
 
-		res.status(200).json(todos);
-	})*/
-	console.log(req.user);
-	userModel.findOne({_id: req.user._id})
-	.populate('todos')
-	.exec(function(err, todos){
-		if(err){
-			req.errstatus = 404
-			return next(new Error("could not find users with todos"))
-		}
-		res.status(200).json(todos);
-	})
+res.status(200).json(todos);
+})*/
+console.log(req.user);
+userModel.findOne({_id: req.user._id})
+.populate('todos')
+.exec(function(err, todos){
+	if(err){
+		req.errstatus = 404
+		return next(new Error("could not find users with todos"))
+	}
+	res.status(200).json(todos);
+})
 }
 
 exports.fetchTodo = function(req, res, next) {
@@ -65,25 +65,25 @@ exports.fetchTodo = function(req, res, next) {
 
 
 exports.updateTodo = function(req, res, next){
-  var newTodo = req.body
-  todoModel.update({_id: req.todo['_id']}, newTodo, (err, todo)=>{
-    if(err){
-      req.errstatus = 500
-      return next(new Error("could not update at this time"))
-    }
-    res.status(200).json(todo)
-  })
+	var newTodo = req.body
+	todoModel.update({_id: req.todo['_id']}, newTodo, (err, todo)=>{
+		if(err){
+			req.errstatus = 500
+			return next(new Error("could not update at this time"))
+		}
+		res.status(200).json(todo)
+	})
 }
 
 
 exports.deleteTodo = function(req, res, next){
-  var id = req.params.id;
-  todoModel.remove({'_id':id}, (err, todo)=>{
-    if(err){
-      req.errstatus = 500
-      return next(new Error("could not delete"))
-    }
-    res.status(200).json(todo);
+	var id = req.params.id;
+	todoModel.remove({'_id':id}, (err, todo)=>{
+		if(err){
+			req.errstatus = 500
+			return next(new Error("could not delete"))
+		}
+		res.status(200).json(todo);
 
-  })
+	})
 }

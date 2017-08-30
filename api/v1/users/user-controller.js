@@ -1,5 +1,5 @@
 var userModel = require('./user-model.js'),
-	auth	  = require('../auth/auth.js');
+auth	  = require('../auth/auth.js');
 
 exports.addUser = function(req, res, next) {
 

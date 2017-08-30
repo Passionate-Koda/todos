@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
-	todoSchema,
-	Schema = mongoose.Schema;
+todoSchema,
+Schema = mongoose.Schema;
 
 
 // connect to mongoose db

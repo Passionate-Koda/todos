@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
-	bcrypt	 = require('bcrypt-nodejs'),
-	Schema = mongoose.Schema,
-	UserSchema;
+		bcrypt	 = require('bcrypt-nodejs'),
+		Schema 	 = mongoose.Schema,
+		UserSchema;
 
 
 mongoose.connect("mongodb://localhost/todos")
@@ -26,7 +26,7 @@ UserSchema.methods = {
 
 	encryptPassword: function(plaintext) {
 		if(!plaintext)
-			return ""
+		return ""
 
 		var salt = bcrypt.genSaltSync();// salt is an extra info to make it harder to generate a password
 		return bcrypt.hashSync(plaintext, salt);
