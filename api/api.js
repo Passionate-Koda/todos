@@ -9,4 +9,4 @@ api.use('/todos', todoRoute);
 api.use('/users', userRoute);
 api.use('/auth', authRoute);
 
-module.exports = api
+module.exports = api;

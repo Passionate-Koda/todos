@@ -4,6 +4,7 @@ Schema = mongoose.Schema;
 
 
 // connect to mongoose db
+
 mongoose.connect("mongodb://localhost/todos")
 
 todoSchema = new mongoose.Schema({

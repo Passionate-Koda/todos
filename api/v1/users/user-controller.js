@@ -14,7 +14,7 @@ exports.addUser = function(req, res, next) {
 
 		// make user a true object
 		user = user.toObject();
-		var token = auth.sign(user._id);
+		var token = auth.sign(user.hash_id);
 		user["_token"] = token
 		user["success"] = true;
 

@@ -1,7 +1,7 @@
 var express 				= require('express'),
 		todoRouter      = express.Router(),
 		todoController  = require('./todo-controller.js'),
-		auth 						= require('../auth/auth.js');
+		auth 		= require('../auth/auth.js');
 
 todoRouter.param("id", todoController.intercept)
 

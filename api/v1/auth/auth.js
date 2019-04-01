@@ -1,5 +1,5 @@
 var expressjwt = require("express-jwt"),
-jwt 	   = require("jsonwebtoken"),
+jwt = require("jsonwebtoken"),
 userModel = require("../users/user-model.js");
 checkToken = expressjwt({secret: "jsonweb"});
 
@@ -33,11 +33,6 @@ exports.verifyUsers = function(req, res, next) {
 		req.errstatus = 500
 		return next(err);
 	}
-
-
-
-
-
 }
 
 
@@ -45,7 +40,7 @@ exports.verifyUsers = function(req, res, next) {
 exports.sign = function(id) {
 	return jwt.sign(
 		{_id: id}, //id is needed for it is unique to users
-		"jsonweb",
+		"jsonweb",//
 		{expiresIn: 14 * 24 * 60 * 60}
 	)
 }
